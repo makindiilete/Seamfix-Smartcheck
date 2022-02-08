@@ -1,0 +1,280 @@
+@font-face {
+  font-family: "mulibold";
+  src: url("./assets/fonts/muli-bold-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulibolditalic";
+  src: url("./assets/fonts/muli-bolditalic-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muliextralight";
+  src: url("./assets/fonts/muli-extralight-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-extralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muliextralightitalic";
+  src: url("./assets/fonts/muli-extralightitalic-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-extralightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muliregularitalic";
+  src: url("./assets/fonts/muli-italic-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulilight";
+  src: url("./assets/fonts/muli-light-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulilightitalic";
+  src: url("./assets/fonts/muli-lightitalic-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulisemibolditalic";
+  src: url("./assets/fonts/muli-semi-bolditalic-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-semi-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulisemibold";
+  src: url("./assets/fonts/muli-semibold-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muliregular";
+  src: url("./assets/fonts/muli-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "mulibold";
+  src: url("./assets/fonts/muli-bold-webfont.woff2") format("woff2"),
+    url("./assets/fonts/muli-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #49d3ff;
+  --secondary-color: #1b1464;
+  --primary-light-color: #e8dcfe;
+  --tertiary-color: #e8467e;
+  --tertiary-light-color: #f9e5f4;
+  --white: #fafafa;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  /*equivalent to 10px*/
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "muliregular", sans-serif !important;
+  background-color: #f1f3f5 !important;
+  color: #23143f !important;
+  letter-spacing: 0 !important;
+  font-size: 1.6rem !important;
+  opacity: 1 !important;
+}
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/*Typography*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /*ds place 1rem space btw our heading and their text so it can look closer to what we have on the mockup*/
+  line-height: 1.1 !important;
+  margin-bottom: 1rem !important;
+  font-weight: bold !important;
+}
+
+h1 {
+  /*with html font-size set to 62.5% this is 70px*/
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+p {
+  /*in other to avoid margin collapsing bcos paragraph element comes with their own margins so we set this to 0 so only the margin bottom of our headings will take prominent*/
+  margin-top: 0 !important;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem !important;
+  }
+
+  h1 {
+    font-size: 6rem !important;
+  }
+
+  h2 {
+    font-size: 4rem !important;
+  }
+
+  h3 {
+    font-size: 2.8rem !important;
+  }
+  h4 {
+    font-size: 1.999rem !important;
+  }
+  h5 {
+    font-size: 1.414rem !important;
+  }
+  h6 {
+    font-size: 1rem !important;
+  }
+}
+
+/*BUTTONS*/
+.btn {
+  padding: 1rem 2rem !important;
+  border-radius: 4px !important;
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  font-family: "tt_normsregular", sans-serif;
+}
+.btn-primary {
+  background: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+  font-size: 1.6rem !important;
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 4px !important;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color) !important;
+  color: var(--white) !important;
+  font-size: 1.6rem !important;
+  border: 1px solid var(--secondary-color) !important;
+  border-radius: 4px !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.primary-text {
+  color: var(--primary-color) !important;
+}
+.secondary-text {
+  color: var(--secondary-color) !important;
+}
+
+.ant-tabs-ink-bar {
+  background: var(--primary-color) !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--primary-color) !important;
+}
+
+.cursor {
+  cursor: pointer !important;
+}
+
+small {
+  font-size: 70% !important;
+}
+
+.ant-layout-sider {
+  /*display: none;*/
+  /*flex: 0 0 10vw !important;*/
+  /*width: 30vw !important;*/
+  /*max-width: 50vw !important;*/
+  /*position: relative !important;*/
+  background: transparent !important;
+  border-right: 1px solid grey !important;
+  margin-right: 4rem !important;
+  /*transition: all 0.2s !important;*/
+}
+
+.ant-table {
+  position: relative !important;
+  font-size: 1.4rem !important;
+  background: transparent !important;
+  border-radius: 2px !important;
+}
+
+.padding-none {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .col {
+    margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .col-md-4 {
+    margin-bottom: 2rem !important;
+  }
+}
+@media (min-width: 1024px) {
+  small {
+    font-size: 80% !important;
+  }
+  /*  .ant-layout-sider {
+    flex: 0 0 30vw !important;
+    display: block;
+  }*/
+}
