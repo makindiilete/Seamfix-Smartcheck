@@ -7,6 +7,7 @@ import pdf from "../../assets/images/PDF.svg";
 import critical from "../../assets/images/triangle.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import useMobile from "../../hooks/useMobile";
 
 const { Option } = Select;
 
@@ -107,6 +108,7 @@ const data = [
 
 const ServerPage = (props) => {
   let location = useLocation();
+  const mobile = useMobile();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -119,9 +121,12 @@ const ServerPage = (props) => {
     <section className="home">
       <div className="container-fluid">
         <div className="home__content bg-white">
-          <div className="d-flex justify-content-md-between">
-            <div className="d-flex">
-              <div style={{ width: "39.7rem" }} className="mr-3 mb-4 mb-md-0">
+          <div className="d-flex justify-content-md-between flex-wrap flex-md-nowrap ">
+            <div className="d-flex flex-wrap flex-md-nowrap">
+              <div
+                style={!mobile ? { width: "39.7rem" } : { width: "100%" }}
+                className="mb-4 mb-md-0"
+              >
                 <Input
                   name="search"
                   placeholder="Enter a search keyword"
@@ -133,14 +138,19 @@ const ServerPage = (props) => {
               <Select
                 defaultValue="all"
                 onChange={handleChange}
-                className="mr-3 select mb-4 mb-md-0"
+                className="mr-3 select select__server mb-4 mb-md-0"
               >
                 <Option value="all">Active</Option>
                 <Option value="Inactive">Inactive</Option>
                 <Option value="2">All</Option>
               </Select>
             </div>
-            <button className="btn btn-primary">Create Server</button>
+            <button
+              className="btn btn-primary"
+              style={mobile ? { width: "100%" } : null}
+            >
+              Create Server
+            </button>
           </div>
           <br />
           <Table
