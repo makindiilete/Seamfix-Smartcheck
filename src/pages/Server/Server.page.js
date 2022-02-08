@@ -138,7 +138,7 @@ const ServerPage = (props) => {
               <Select
                 defaultValue="all"
                 onChange={handleChange}
-                className="mr-3 select select__server mb-4 mb-md-0"
+                className="mr-md-3 select select__server mb-4 mb-md-0"
               >
                 <Option value="all">Active</Option>
                 <Option value="Inactive">Inactive</Option>
