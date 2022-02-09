@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/all";
 import useMobile from "../../hooks/useMobile";
@@ -9,76 +9,9 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 import critical from "../../assets/images/triangle.svg";
 import excel from "../../assets/images/xls.svg";
 import pdf from "../../assets/images/PDF.svg";
+import HealthCheckResult from "../../components/Modals/healthCheckResult";
 
 const { Option } = Select;
-
-const columns = [
-  {
-    title: "S/N",
-    dataIndex: "key",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "APPLICATION",
-    dataIndex: "application",
-    render: (text, record) => (
-      <div className="d-flex align-items-center">
-        <div className={record?.key === "5" ? "down" : "live"} />
-        <p className="padding-none ml-3">{text}</p>
-      </div>
-    ),
-  },
-  {
-    title: "SERVERS MAPPED",
-    dataIndex: "mapped",
-    render: (text) => <p className="primary-text">{text}</p>,
-  },
-  {
-    title: "LAST SCAN DATE",
-    dataIndex: "date",
-  },
-  {
-    title: "STATUS",
-    dataIndex: "status",
-    render: (text) => (
-      <div className="d-flex">
-        {text !== "Healthy" && (
-          <img
-            src={critical}
-            alt=""
-            className="img-fluid"
-            style={{ width: "1.5rem", height: "1.5rem" }}
-          />
-        )}
-
-        {text === "Healthy" && (
-          <p className="primary-text">
-            <FontAwesomeIcon
-              icon={icons.faCheckCircle}
-              size=""
-              className={text === "Healthy" && "text-success mr-2"}
-            />
-            {text}
-          </p>
-        )}
-      </div>
-    ),
-  },
-  {
-    title: "ACTION",
-    dataIndex: "key",
-    render: (text) => (
-      <div className="d-flex align-items-center">
-        <button className="btn btn-primary btn-sm">View Result</button>
-        <FontAwesomeIcon
-          icon={icons.faEllipsisV}
-          size=""
-          className="text-muted ml-3"
-        />
-      </div>
-    ),
-  },
-];
 
 const data = [
   {
@@ -128,6 +61,80 @@ const HomePage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+  const [viewResult, setViewResult] = useState(false);
+
+  const columns = [
+    {
+      title: "S/N",
+      dataIndex: "key",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "APPLICATION",
+      dataIndex: "application",
+      render: (text, record) => (
+        <div className="d-flex align-items-center">
+          <div className={record?.key === "5" ? "down" : "live"} />
+          <p className="padding-none ml-3">{text}</p>
+        </div>
+      ),
+    },
+    {
+      title: "SERVERS MAPPED",
+      dataIndex: "mapped",
+      render: (text) => <p className="primary-text">{text}</p>,
+    },
+    {
+      title: "LAST SCAN DATE",
+      dataIndex: "date",
+    },
+    {
+      title: "STATUS",
+      dataIndex: "status",
+      render: (text) => (
+        <div className="d-flex">
+          {text !== "Healthy" && (
+            <img
+              src={critical}
+              alt=""
+              className="img-fluid"
+              style={{ width: "1.5rem", height: "1.5rem" }}
+            />
+          )}
+
+          {text === "Healthy" && (
+            <p className="primary-text">
+              <FontAwesomeIcon
+                icon={icons.faCheckCircle}
+                size=""
+                className={text === "Healthy" && "text-success mr-2"}
+              />
+              {text}
+            </p>
+          )}
+        </div>
+      ),
+    },
+    {
+      title: "ACTION",
+      dataIndex: "key",
+      render: (text) => (
+        <div className="d-flex align-items-center">
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => setViewResult(true)}
+          >
+            View Result
+          </button>
+          <FontAwesomeIcon
+            icon={icons.faEllipsisV}
+            size=""
+            className="text-muted ml-3"
+          />
+        </div>
+      ),
+    },
+  ];
 
   function handleChange(value) {
     console.log(`selected ${value}`);
@@ -229,6 +236,11 @@ const HomePage = (props) => {
         </div>
       </div>
       <br />
+
+      <HealthCheckResult
+        visible={viewResult}
+        onCancel={() => setViewResult(false)}
+      />
     </section>
   );
 };

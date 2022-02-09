@@ -103,20 +103,10 @@
   }
 
   .live {
-    width: 15px;
     height: 15px;
-    background: #24c977;
-    border: 1px solid #24c977;
-    border-radius: 7.5px;
-    opacity: 1;
   }
 
   .down {
-    width: 15px;
     height: 15px;
-    background: #ff4343f7;
-    border: 1px solid #ff4343f7;
-    border-radius: 7.5px;
-    opacity: 1;
   }
 }

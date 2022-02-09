@@ -6,6 +6,8 @@ import app from "../assets/images/noun_application_967926.svg";
 import home from "../assets/images/noun_Home_2079957.svg";
 import { useHistory, useLocation } from "react-router-dom";
 import routes from "../routes";
+import ContentHealthCheck from "./Modals/ContentHealthCheck";
+import HealthCheckResultDouble from "./Modals/healthCheckResultDouble";
 const NavigationPage = (props) => {
   const history = useHistory();
   let location = useLocation();
@@ -15,6 +17,8 @@ const NavigationPage = (props) => {
     window.scrollTo(0, 0);
   }, []);
   const [path, setPath] = useState(0);
+  const [checkHealthStatus, setCheckHealthStatus] = useState(false);
+  const [viewResult, setViewResult] = useState(false);
 
   useEffect(() => {
     switch (current) {
@@ -73,9 +77,30 @@ const NavigationPage = (props) => {
           </div>
         </div>
         <div className="nav__btn__container mt-2 mt-md-0">
-          <button className="btn btn-primary">Check Health Status</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => setCheckHealthStatus(true)}
+          >
+            Check Health Status
+          </button>
         </div>
       </div>
+      <ContentHealthCheck
+        visible={checkHealthStatus}
+        onCancel={(arg) => {
+          if (arg === "continue") {
+            setCheckHealthStatus(false);
+            setViewResult(true);
+          } else {
+            setCheckHealthStatus(false);
+          }
+        }}
+      />
+
+      <HealthCheckResultDouble
+        visible={viewResult}
+        onCancel={() => setViewResult(false)}
+      />
     </section>
   );
 };

@@ -1,0 +1,41 @@
+.health__check__card {
+  width: 100%;
+  min-height: 2.65rem;
+  background: #ffffff 0 0 no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000029;
+  border: 1px solid #c1c1c1;
+  border-radius: 2px;
+  opacity: 1;
+  padding: 1rem 2rem;
+}
+
+.health__check__card-item {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  border-bottom: 1px solid darkgrey;
+}
+
+.health__check__card-live {
+  width: 8px;
+  height: 8px;
+  background: #24c977;
+  border: 1px solid #24c977;
+  border-radius: 7.5px;
+  opacity: 1;
+}
+
+.health__check__card.content__health {
+  min-height: 1.81rem;
+}
+
+@media (min-width: 768px) {
+  .health__check__card {
+    width: 465px;
+  }
+  .health__check__card-live {
+    width: 15px;
+    height: 15px;
+  }
+}

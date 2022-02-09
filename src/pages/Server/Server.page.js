@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/all";
 import { Input, Select, Table } from "antd";
@@ -8,6 +8,8 @@ import critical from "../../assets/images/triangle.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import useMobile from "../../hooks/useMobile";
+import HealthCheckResult from "../../components/Modals/healthCheckResult";
+import CreateServer from "../../components/Modals/CreateServer";
 
 const { Option } = Select;
 
@@ -112,6 +114,7 @@ const ServerPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+  const [createServer, setCreateServer] = useState(false);
 
   function handleChange(value) {
     console.log(`selected ${value}`);
@@ -125,7 +128,7 @@ const ServerPage = (props) => {
             <div className="d-flex flex-wrap flex-md-nowrap">
               <div
                 style={!mobile ? { width: "39.7rem" } : { width: "100%" }}
-                className="mb-4 mb-md-0"
+                className="mb-4 mb-md-0 mr-md-2"
               >
                 <Input
                   name="search"
@@ -148,6 +151,7 @@ const ServerPage = (props) => {
             <button
               className="btn btn-primary"
               style={mobile ? { width: "100%" } : null}
+              onClick={() => setCreateServer(true)}
             >
               Create Server
             </button>
@@ -171,6 +175,10 @@ const ServerPage = (props) => {
         </div>
       </div>
       <br />
+      <CreateServer
+        visible={createServer}
+        onCancel={() => setCreateServer(false)}
+      />
     </section>
   );
 };
