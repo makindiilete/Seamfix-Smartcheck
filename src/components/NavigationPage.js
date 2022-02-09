@@ -41,7 +41,12 @@ const NavigationPage = (props) => {
   return (
     <section className="nav">
       <div className="nav__blue">
-        <img src={logo} alt="" className="img-fluid" />
+        <img
+          src={logo}
+          alt=""
+          className="img-fluid cursor"
+          onClick={() => history.push("/")}
+        />
       </div>
       <div className="nav__white position-relative">
         <div className="d-flex">
