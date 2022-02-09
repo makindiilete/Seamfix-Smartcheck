@@ -31,8 +31,8 @@ const NavigationPage = (props) => {
       case "app":
         setPath(2);
         break;
-      default:
-        setPath(0);
+      // default:
+      //   setPath(0);
     }
   }, [location.pathname]);
   return (

@@ -1,0 +1,48 @@
+.thumbnailGridContainer {
+  display: grid;
+  grid-template: repeat(auto-fill, 10.4rem) / repeat(3, 10.4rem);
+  justify-items: center;
+  align-items: center;
+  row-gap: 4rem;
+  column-gap: 1rem;
+}
+
+.galleryImgThumbnail {
+  width: 7rem;
+  height: 9.4rem;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  .thumbnailGridContainer {
+    grid-template: repeat(auto-fill, 10.4rem) / repeat(2, 10.4rem);
+    row-gap: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .thumbnailGridContainer {
+    margin-left: -12.5rem;
+    grid-template: repeat(auto-fill, 19rem) / repeat(3, 22rem);
+    row-gap: 3rem;
+    margin-top: 5rem;
+  }
+  .galleryImgThumbnail {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+@media (min-width: 1024px) {
+  .thumbnailGridContainer {
+    margin-left: -6rem;
+    grid-template: repeat(auto-fill, 19rem) / repeat(3, 22rem);
+  }
+}
+@media (min-width: 1440px) {
+  .thumbnailGridContainer {
+    margin-left: -8rem;
+    grid-template: repeat(auto-fill, 19rem) / repeat(4, 22rem);
+  }
+}

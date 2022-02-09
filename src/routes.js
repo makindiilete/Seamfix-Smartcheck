@@ -3,4 +3,6 @@ export default Object.freeze({
   HOME: "/home",
   Server: "/server",
   APPLICATION: "/app",
+  SEARCH: "/gifSearch",
+  GIF_DETAILS: "/gifDetails",
 });
