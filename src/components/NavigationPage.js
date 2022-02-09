@@ -31,8 +31,11 @@ const NavigationPage = (props) => {
       case "app":
         setPath(2);
         break;
-      default:
+      case "gifSearch":
         setPath(3);
+        break;
+      default:
+        setPath(0);
     }
   }, [location.pathname]);
   return (

@@ -9,6 +9,7 @@ import "../../assets/css/healthCheck.css";
 
 const CreateServer = ({ visible, onCancel }) => {
   let location = useLocation();
+  const [form] = Form.useForm();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -21,7 +22,24 @@ const CreateServer = ({ visible, onCancel }) => {
     storage: "",
   });
 
-  const handleSubmit = (values) => {};
+  const handleSubmit = async () => {
+    let errorDetected = false;
+    await form.validateFields();
+    const response = form.getFieldsError();
+    for (let i = 0; i < response?.length; i++) {
+      if (response[i].errors?.length > 0) {
+        errorDetected = true;
+      }
+    }
+    if (!errorDetected) {
+      form.submit();
+      onCancel();
+    }
+  };
+
+  useEffect(() => {
+    form.resetFields();
+  }, [visible]);
 
   const handleChange = (name, value) => {
     setData({ ...data, [name]: value });
@@ -52,13 +70,7 @@ const CreateServer = ({ visible, onCancel }) => {
         <div className="row">
           <div className="col-md-8 offset-md-2">
             <p>Enter Server Details</p>
-            {/*
-                           serverName: "",
-        serverIp: "",
-        cpu: "",
-        storage: ""
-                        */}
-            <Form layout="vertical" scrollToFirstError onFinish={handleSubmit}>
+            <Form form={form} layout="vertical" scrollToFirstError>
               <Form.Item
                 className="mb-3 mb-md-0 mt-2"
                 initialValue=""
@@ -133,7 +145,7 @@ const CreateServer = ({ visible, onCancel }) => {
             <p className="padding-none mr-4 cursor" onClick={onCancel}>
               Cancel
             </p>
-            <button className="btn btn-primary" onClick={onCancel}>
+            <button className="btn btn-primary" onClick={() => handleSubmit()}>
               Create
             </button>
           </div>
