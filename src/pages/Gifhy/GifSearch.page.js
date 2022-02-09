@@ -6,6 +6,7 @@ import { fetchGifs } from "../../services/searchService";
 import routes from "../../routes";
 import "../../assets/css/gif.css";
 import { GifContext } from "../../Utils/context";
+import logo from "../../assets/images/Smartcheck Logo.svg";
 
 const { Search } = Input;
 const GifSearchPage = (props) => {
@@ -19,12 +20,10 @@ const GifSearchPage = (props) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
   const onSearch = async (value) => {
-    console.log("value = ", value);
     setIsLoading(true);
     const response = await fetchGifs(value);
     setIsLoading(false);
     if (response.ok) {
-      console.log(response?.data);
       setGifs(response.data?.data);
     } else {
       message.error(response.data?.message || "Something went wrong");
@@ -41,7 +40,16 @@ const GifSearchPage = (props) => {
             id={"flex-container"}
             className="d-flex justify-content-center align-items-center"
           >
-            <p>Loading......</p>
+            <div className="box">
+              <img
+                src={logo}
+                alt=""
+                className="img-fluid"
+                style={{ width: "20rem" }}
+              />
+              <br />
+              <p className="text-center">Loading......</p>
+            </div>
           </div>
         ) : (
           <div className="container">

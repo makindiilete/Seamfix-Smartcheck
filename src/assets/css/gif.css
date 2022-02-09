@@ -15,6 +15,30 @@
   cursor: pointer;
 }
 
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.box {
+  animation-name: pop;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-direction: reverse;
+}
+
 @media (max-width: 320px) {
   .thumbnailGridContainer {
     grid-template: repeat(auto-fill, 10.4rem) / repeat(2, 10.4rem);
