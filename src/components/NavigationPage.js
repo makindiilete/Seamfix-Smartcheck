@@ -37,13 +37,13 @@ const NavigationPage = (props) => {
       default:
         setPath(0);
     }
-  }, [location.pathname]);
+  }, [current]);
   return (
     <section className="nav">
       <div className="nav__blue">
         <img
           src={logo}
-          alt=""
+          alt="Smartcheck Logo - Click to go home"
           className="img-fluid cursor"
           onClick={() => history.push("/")}
         />
@@ -55,7 +55,7 @@ const NavigationPage = (props) => {
             onClick={() => history.push(routes.HOME)}
           >
             <div className="d-flex align-items-center">
-              <img src={home} className="img-fluid nav__icon" alt="" />
+              <img src={home} className="img-fluid nav__icon" alt="Home icon" />
               <p className="text-dark padding-none">Home</p>
             </div>
             {path === 0 && <div className="nav__underline" />}
@@ -65,7 +65,7 @@ const NavigationPage = (props) => {
             onClick={() => history.push(routes.Server)}
           >
             <div className="d-flex align-items-center">
-              <img src={server} className="img-fluid nav__icon" alt="" />
+              <img src={server} className="img-fluid nav__icon" alt="Server icon" />
               <p className="text-dark padding-none">Server</p>
             </div>
             {path === 1 && <div className="nav__underline" />}
@@ -76,7 +76,7 @@ const NavigationPage = (props) => {
             onClick={() => history.push(routes.APPLICATION)}
           >
             <div className="d-flex align-items-center">
-              <img src={app} className="img-fluid nav__icon" alt="" />
+              <img src={app} className="img-fluid nav__icon" alt="Application icon" />
               <p className="text-dark padding-none">Application</p>
             </div>
             {path === 2 && (
