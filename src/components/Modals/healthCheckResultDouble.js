@@ -147,17 +147,6 @@ const HealthCheckResultDouble = ({ visible, onCancel }) => {
             </div>
           </div>
         </div>
-        {!mobile && (
-          <p
-            className="primary-text text-right mt-3 cursor"
-            style={
-              !mobile ? { marginRight: "10rem", position: "absolute" } : null
-            }
-          >
-            <FontAwesomeIcon icon={icons.faRedo} size="" className="mr-4" />
-            Refresh
-          </p>
-        )}
         <p
           className="primary-text text-right mt-3 cursor"
           style={

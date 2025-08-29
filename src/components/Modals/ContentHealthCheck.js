@@ -30,10 +30,6 @@ const ContentHealthCheck = ({ visible, onCancel }) => {
 
   const mobile = useMobile();
 
-  function onChange(e) {
-    console.log(`checked = ${e.target.checked}`);
-  }
-
   const handleCheckedAllApps = () => {
     setAppCheckAll(!appCheckAll);
   };
